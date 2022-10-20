@@ -1,17 +1,33 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_auth_app/domain/domain.dart';
 
 class LoginResponse extends Equatable {
   final int? id;
-  final String token;
+  final String? token;
   final String? error;
 
-  const LoginResponse({required this.token, this.id, this.error});
+  const LoginResponse({this.id, this.token, this.error});
 
-  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
-      LoginResponse(token: json["token"], id: json["id"], error: json["error"]);
+  LoginResponse.fromJson(dynamic json)
+      : id = json['id'] as int?,
+        token = json['token'] as String?,
+        error = json['error'] as String?;
 
-  Map<String, dynamic> toJson() => {"token": token, "id": id, "error": error};
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['token'] = token;
+    map['error'] = error;
+
+    return map;
+  }
+
+  // Login toEntity() => Login(token);
 
   @override
-  List<Object?> get props => [token, id, error];
+  List<Object?> get props => [
+        id,
+        token,
+        error,
+      ];
 }

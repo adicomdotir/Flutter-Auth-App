@@ -22,7 +22,7 @@ class LoginResponse extends Equatable {
     return map;
   }
 
-  // Login toEntity() => Login(token);
+  Login toEntity() => Login(token);
 
   @override
   List<Object?> get props => [

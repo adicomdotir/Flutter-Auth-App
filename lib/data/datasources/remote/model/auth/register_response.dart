@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_auth_app/domain/domain.dart';
 
 class RegisterResponse extends Equatable {
   final int? id;
@@ -25,7 +26,7 @@ class RegisterResponse extends Equatable {
     return map;
   }
 
-  // Register toEntity() => Register(token);
+  Register toEntity() => Register(token);
 
   @override
   List<Object?> get props => [

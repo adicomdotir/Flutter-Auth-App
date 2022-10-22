@@ -29,12 +29,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   equatable: ^2.0.5
   dio: ^4.0.6
   logger: ^1.1.0
   get_it: ^7.2.0
   shared_preferences: ^2.0.7
   dartz: ^0.10.1
+  flutter_bloc: ^8.1.0
+  flutter_screenutil: ^5.5.4
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -42,6 +46,7 @@ dev_dependencies:
     sdk: flutter
   http_mock_adapter: ^0.3.3
   mockito: ^5.0.15
+  bloc_test: ^9.1.0
   flutter_lints: ^1.0.0
 
 # For information on the generic Dart part of this file, see the

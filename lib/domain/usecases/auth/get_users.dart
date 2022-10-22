@@ -1,16 +1,17 @@
-// import 'package:dartz/dartz.dart';
-// import 'package:flutter_auth_app/core/core.dart';
-// import 'package:flutter_auth_app/domain/domain.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter_auth_app/core/core.dart';
+import 'package:flutter_auth_app/core/usecase/usecase.dart';
+import 'package:flutter_auth_app/domain/domain.dart';
 
-// class GetUsers extends UseCase<Users, UsersParams> {
-//   final AuthRepository _repo;
+class GetUsers extends UseCase<Users, UsersParams> {
+  final AuthRepository _repo;
 
-//   GetUsers(this._repo);
+  GetUsers(this._repo);
 
-//   @override
-//   Future<Either<Failure, Users>> call(UsersParams params) =>
-//       _repo.users(params);
-// }
+  @override
+  Future<Either<Failure, Users>> call(UsersParams params) =>
+      _repo.users(params);
+}
 
 class UsersParams {
   int page;

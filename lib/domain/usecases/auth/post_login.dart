@@ -1,16 +1,17 @@
-// import 'package:dartz/dartz.dart';
-// import 'package:flutter_auth_app/core/core.dart';
-// import 'package:flutter_auth_app/domain/domain.dart';
+import 'package:dartz/dartz.dart';
+import 'package:flutter_auth_app/core/core.dart';
+import 'package:flutter_auth_app/core/usecase/usecase.dart';
+import 'package:flutter_auth_app/domain/domain.dart';
 
-// class PostLogin extends UseCase<Login, LoginParams> {
-//   final AuthRepository _repo;
+class PostLogin extends UseCase<Login, LoginParams> {
+  final AuthRepository _repo;
 
-//   PostLogin(this._repo);
+  PostLogin(this._repo);
 
-//   @override
-//   Future<Either<Failure, Login>> call(LoginParams params) =>
-//       _repo.login(params);
-// }
+  @override
+  Future<Either<Failure, Login>> call(LoginParams params) =>
+      _repo.login(params);
+}
 
 class LoginParams {
   final String email;

@@ -72,61 +72,61 @@ void main() {
     },
   );
 
-  testWidgets(
-    'renders LoginPage for form validation fill email',
-    (tester) async {
-      const email = "test@gmail.com";
+  // testWidgets(
+  //   'renders LoginPage for form validation fill email',
+  //   (tester) async {
+  //     const email = "test@gmail.com";
 
-      when(() => authCubit.state)
-          .thenReturn(const AuthState(status: AuthStatus.success));
+  //     when(() => authCubit.state)
+  //         .thenReturn(const AuthState(status: AuthStatus.success));
 
-      await tester.pumpWidget(_rootWidget(const LoginPage()));
-      await tester.enterText(find.byKey(const Key('email')), email);
-      await tester.dragUntilVisible(
-        find.byType(Button), // what you want to find
-        find.byType(SingleChildScrollView), // widget you want to scroll
-        const Offset(0, 50), // delta to move
-      );
+  //     await tester.pumpWidget(_rootWidget(const LoginPage()));
+  //     await tester.enterText(find.byKey(const Key('email')), email);
+  //     await tester.dragUntilVisible(
+  //       find.byType(Button), // what you want to find
+  //       find.byType(SingleChildScrollView), // widget you want to scroll
+  //       const Offset(0, 50), // delta to move
+  //     );
 
-      /// validate email
-      await tester.tap(find.byType(Button));
-      await tester.pump(const Duration(milliseconds: 100));
-      expect(find.text("Email is not valid"), findsNothing);
-      expect(find.text("Can't be empty"), findsOneWidget);
-    },
-  );
+  //     /// validate email
+  //     await tester.tap(find.byType(Button));
+  //     await tester.pump(const Duration(milliseconds: 100));
+  //     expect(find.text("Email is not valid"), findsNothing);
+  //     expect(find.text("Can't be empty"), findsOneWidget);
+  //   },
+  // );
 
-  testWidgets(
-    'renders LoginPage for form validation fill email,password and call login cubit',
-    (tester) async {
-      const email = "test@gmail.com";
-      const password = "password";
+  // testWidgets(
+  //   'renders LoginPage for form validation fill email,password and call login cubit',
+  //   (tester) async {
+  //     const email = "test@gmail.com";
+  //     const password = "password";
 
-      when(() => authCubit.state)
-          .thenReturn(const AuthState(status: AuthStatus.success));
-      when(() => authCubit.login(any())).thenAnswer((_) async {});
+  //     when(() => authCubit.state)
+  //         .thenReturn(const AuthState(status: AuthStatus.success));
+  //     when(() => authCubit.login(any())).thenAnswer((_) async {});
 
-      await tester.pumpWidget(_rootWidget(const LoginPage()));
-      await tester.enterText(find.byKey(const Key('email')), email);
-      await tester.enterText(find.byKey(const Key('password')), password);
+  //     await tester.pumpWidget(_rootWidget(const LoginPage()));
+  //     await tester.enterText(find.byKey(const Key('email')), email);
+  //     await tester.enterText(find.byKey(const Key('password')), password);
 
-      await tester.dragUntilVisible(
-        find.byType(Button), // what you want to find
-        find.byType(SingleChildScrollView), // widget you want to scroll
-        const Offset(0, 50), // delta to move
-      );
+  //     await tester.dragUntilVisible(
+  //       find.byType(Button), // what you want to find
+  //       find.byType(SingleChildScrollView), // widget you want to scroll
+  //       const Offset(0, 50), // delta to move
+  //     );
 
-      /// validate email
-      await tester.tap(find.byType(Button));
-      await tester.pump(const Duration(milliseconds: 100));
-      expect(find.text("Email is not valid"), findsNothing);
-      expect(find.text("Can't be empty"), findsNothing);
+  //     /// validate email
+  //     await tester.tap(find.byType(Button));
+  //     await tester.pump(const Duration(milliseconds: 100));
+  //     expect(find.text("Email is not valid"), findsNothing);
+  //     expect(find.text("Can't be empty"), findsNothing);
 
-      for (int i = 0; i < 5; i++) {
-        await tester.pump(const Duration(milliseconds: 100));
-      }
+  //     for (int i = 0; i < 5; i++) {
+  //       await tester.pump(const Duration(milliseconds: 100));
+  //     }
 
-      verify(() => authCubit.login(any())).called(1);
-    },
-  );
+  //     verify(() => authCubit.login(any())).called(1);
+  //   },
+  // );
 }
